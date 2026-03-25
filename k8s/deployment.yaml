@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: secure-cicd-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: secure-cicd
+  template:
+    metadata:
+      labels:
+        app: secure-cicd
+    spec:
+      containers:
+      - name: secure-cicd-container
+        image: shubham1244/secure-cicd-project:latest
+        ports:
+        - containerPort: 5000
